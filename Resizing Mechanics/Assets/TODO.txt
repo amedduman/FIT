@@ -1,0 +1,8 @@
+
+
+TODO:
+
+
+- make collision and player scaling correct they have to be synchronized it means the gap in obstacle have to be a value which is possible for player to adjust the cube to perfectly fit in the gap  
+
+- add collision box to obstacles. the collision have to take space as much as gap in the obstacle 
