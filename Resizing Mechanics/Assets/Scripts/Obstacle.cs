@@ -15,15 +15,13 @@ public class Obstacle : MonoBehaviour
     [SerializeField] [Range(0.1f, 10)] float _duration = 1;
     [SerializeField] Vector3 _destination;
 
-
-    private float _height = 1;
+    private float _height = 1; // obstacle height 
 
 
 
     private void Start()
     {
         _height = UnityEngine.Random.Range(1f, 5f);
-        Debug.Log(_height);
         SetObstacleHeight();
         Move();
     }
@@ -62,8 +60,18 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ObstacleSpawnManager.PushObstacleToPool(this);
+        if (other.gameObject.CompareTag("End Trigger"))
+        {
+            ObstacleSpawnManager.PushObstacleToPool(this);
+        }
+        
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("game is over");
+        }
     }
+
+    
 
     private void SetObstacleHeight()
     {

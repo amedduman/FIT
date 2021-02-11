@@ -49,8 +49,8 @@ public class ObstacleSpawnManager : MonoBehaviour
 
     public static void PushObstacleToPool(Obstacle obstacle)
     {
-        obstacle.gameObject.SetActive(false);
         _obstacles.Enqueue(obstacle);
+        obstacle.gameObject.SetActive(false);
     }
 
 }

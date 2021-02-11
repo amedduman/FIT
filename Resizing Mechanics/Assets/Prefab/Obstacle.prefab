@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 8462308947690480679}
   - component: {fileID: 8462308947690480678}
   - component: {fileID: 8462308947690480673}
+  - component: {fileID: 2246369550072662918}
   m_Layer: 0
   m_Name: girder body
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2246369550072662918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462308947690480672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.7, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8462308947908349996
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +211,7 @@ GameObject:
   - component: {fileID: 8462308947971276888}
   - component: {fileID: 8462308947971276891}
   - component: {fileID: 8462308947971276890}
+  - component: {fileID: 6833435744640438951}
   m_Layer: 0
   m_Name: colon righ body
   m_TagString: Untagged
@@ -265,6 +280,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6833435744640438951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462308947971277733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8462308948207630452
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +381,6 @@ MonoBehaviour:
   _gapCol: {fileID: 5846747473299256915}
   _duration: 4
   _destination: {x: 0, y: 0, z: -10}
-  _height: 5
 --- !u!54 &4279454712600994991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -411,6 +438,7 @@ GameObject:
   - component: {fileID: 8462308948921559695}
   - component: {fileID: 8462308948921559694}
   - component: {fileID: 8462308948921559689}
+  - component: {fileID: 2237540070179789975}
   m_Layer: 0
   m_Name: colon left body
   m_TagString: Untagged
@@ -479,6 +507,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2237540070179789975
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462308948921559688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8462308949104575324
 GameObject:
   m_ObjectHideFlags: 0

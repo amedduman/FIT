@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] Vector3 _offset;
-    [SerializeField] PlayerController _player;
+    [FormerlySerializedAs("_offset")] [SerializeField] private Vector3 offset;
+    [SerializeField] private Transform cameraTarget;
     void LateUpdate()
     {
-        transform.localPosition = _player.transform.localPosition + _offset;
+        // transform.localPosition = cameraTarget.transform.position + offset; 
     }
 }
