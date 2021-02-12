@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class SetFrameRate : MonoBehaviour
 {
+    public bool iss {
+        private get;
+         set;
+
+    }
     private void Start()
     {
-        // Application.targetFrameRate = 90;
+        Application.targetFrameRate = 90;
     }
 
 }
