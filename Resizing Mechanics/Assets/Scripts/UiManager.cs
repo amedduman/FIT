@@ -11,6 +11,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] private Text gameOverText;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button playButton;
+    [SerializeField] private Text scoreText;
+    
     
 
     private void OnEnable()
@@ -27,12 +29,14 @@ public class UiManager : MonoBehaviour
     {
         gameOverText.enabled = false;
         restartButton.gameObject.SetActive(false);
+        scoreText.enabled = false;
     }
 
     private void ShowEndScreen()
     {
         gameOverText.enabled = true;
         restartButton.gameObject.SetActive(true);
+        scoreText.enabled = false;
     }
 
     public void RestartButton()
@@ -44,5 +48,11 @@ public class UiManager : MonoBehaviour
     {
         GameManager.StartGame();
         playButton.gameObject.SetActive(false);
+        scoreText.enabled = true;
+    }
+
+    public void UpdateScore(int newScore)
+    {
+        scoreText.text = newScore.ToString();
     }
 }

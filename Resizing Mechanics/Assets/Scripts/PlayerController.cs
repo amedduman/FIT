@@ -8,8 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _minHorizontalScale = 1;
     [SerializeField] float _maxHorizontalScale = 3;
     [SerializeField] [Range(0.1f, 1)] float _scaleSpeed = 1;
+    [SerializeField] private UiManager uiManager;
+    
 
 
+    private int _score = 0;
+    
+    
     private void Start()
     {
         GameManager.ChangeTimeScale(0);
@@ -23,9 +28,6 @@ public class PlayerController : MonoBehaviour
             ScalingProccess();
         }
     }
-
-
-   
 
 
     private void ScalingProccess()
@@ -45,5 +47,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(scale.x, transform.localScale.y, scale.z);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Score Trigger")) return;
+        _score++;
+        uiManager.UpdateScore(_score);
     }
 }

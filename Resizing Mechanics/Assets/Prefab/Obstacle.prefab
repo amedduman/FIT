@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5307272094832980274}
   m_Layer: 0
   m_Name: Gap Collider
-  m_TagString: Untagged
+  m_TagString: Score Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
   _leftColTop: {fileID: 8462308948838752603}
   _girder: {fileID: 8462308947908349996}
   _gapCol: {fileID: 5846747473299256915}
-  _duration: 4
   _destination: {x: 0, y: 0, z: -20}
+  speed: 4
   maxHeight: 7
   minHeight: 1
   minColonGap: 0.5

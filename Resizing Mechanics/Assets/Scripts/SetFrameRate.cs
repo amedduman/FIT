@@ -11,7 +11,7 @@ public class SetFrameRate : MonoBehaviour
     }
     private void Start()
     {
-        Application.targetFrameRate = 90;
+        // Application.targetFrameRate = 90;
     }
 
 }

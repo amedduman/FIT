@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static event  Action OnGameEnd;
-
+    
     public static bool IsPlaying {   get; private set; }
-
     public static void EndGame()
     {
         IsPlaying = false;

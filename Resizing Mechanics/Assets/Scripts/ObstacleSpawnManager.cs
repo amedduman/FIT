@@ -6,7 +6,7 @@ public class ObstacleSpawnManager : MonoBehaviour
 {
     [SerializeField] private float _spawnInterval = 1;
     [SerializeField] private Obstacle _obstaclePref;
-    [SerializeField] private Vector3 _spawnPos;
+    [SerializeField] private Vector3 _spawnPos = new Vector3(0,0,100);
 
     private int _poolCapacity = 20;
     private float _timer;
@@ -30,7 +30,7 @@ public class ObstacleSpawnManager : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer > _spawnInterval)
+        if (_timer > _spawnInterval && GameManager.IsPlaying)
         {
             //  reset the timer
             _timer = _spawnInterval - _timer;
@@ -43,14 +43,17 @@ public class ObstacleSpawnManager : MonoBehaviour
     {
         Obstacle obj = (Obstacle)_obstacles.Dequeue();
         obj.gameObject.SetActive(true);
+        obj.StartMoving();
     }
 
 
 
     public static void PushObstacleToPool(Obstacle obstacle)
     {
-        _obstacles.Enqueue(obstacle);
+        obstacle.gameObject.transform.position = new Vector3(0,0,100);
         obstacle.gameObject.SetActive(false);
+        _obstacles.Enqueue(obstacle);
+        
     }
 
 }

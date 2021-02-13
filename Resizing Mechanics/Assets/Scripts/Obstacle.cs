@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using DG.Tweening;
 
@@ -12,8 +13,9 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private Transform _leftColTop;
     [SerializeField] private GameObject _girder;
     [SerializeField] GameObject _gapCol;
-    [SerializeField] [Range(0.1f, 10)] float _duration = 1;
+    
     [SerializeField] Vector3 _destination;
+    [SerializeField] [Tooltip("higher is slower")] [Range(1, 10)] private int speed = 1;
 
     
 
@@ -22,19 +24,27 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private float minColonGap = 0.5f;
     private float _height = 1; // obstacle height 
 
-    private Color failObstacleColor = Color.red;
-    
-    private void Start()
+    private Vector3 _startPos;
+    private float _lerpFactor = 0;
+    private readonly Color _failObstacleColor = Color.red;
+
+   
+    public void StartMoving()
     {
         _height = UnityEngine.Random.Range(minHeight, maxHeight);
         SetObstacleHeight();
-        Move();
+        _lerpFactor = 0;
+        _startPos = transform.position;
+        
     }
 
-    private void Move()
+    private void Update()
     {
-        transform.DOMove(_destination, _duration);
+        _lerpFactor += Time.deltaTime / speed;
+        transform.position = Vector3.Lerp(_startPos, _destination, _lerpFactor);
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -45,8 +55,7 @@ public class Obstacle : MonoBehaviour
         
         else if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("game is over");
-            FailProcess();
+            // FailProcess();
         }
     }
 
@@ -58,9 +67,9 @@ public class Obstacle : MonoBehaviour
 
     private void SetFailedObstacleColor()
     {
-        _girder.GetComponentInChildren<Renderer>().material.color = failObstacleColor;
-        _colonRight.GetComponentInChildren<Renderer>().material.color = failObstacleColor;
-        _colonLeft.GetComponentInChildren<Renderer>().material.color = failObstacleColor;
+        _girder.GetComponentInChildren<Renderer>().material.color = _failObstacleColor;
+        _colonRight.GetComponentInChildren<Renderer>().material.color = _failObstacleColor;
+        _colonLeft.GetComponentInChildren<Renderer>().material.color = _failObstacleColor;
     }
     
 
