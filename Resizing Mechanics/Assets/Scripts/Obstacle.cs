@@ -55,7 +55,7 @@ public class Obstacle : MonoBehaviour
         
         else if (other.gameObject.CompareTag("Player"))
         {
-            // FailProcess();
+            FailProcess();
         }
     }
 

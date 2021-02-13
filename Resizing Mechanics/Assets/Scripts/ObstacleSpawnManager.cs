@@ -11,7 +11,7 @@ public class ObstacleSpawnManager : MonoBehaviour
     private int _poolCapacity = 20;
     private float _timer;
     private static Queue _obstacles;
-
+    private bool _firstObstacle = true;
 
 
     private void Awake()
@@ -29,14 +29,22 @@ public class ObstacleSpawnManager : MonoBehaviour
 
     private void Update()
     {
-        _timer += Time.deltaTime;
-        if (_timer > _spawnInterval && GameManager.IsPlaying)
+        if (GameManager.IsPlaying)
         {
-            //  reset the timer
-            _timer = _spawnInterval - _timer;
+            if (_firstObstacle)
+            {
+                SendFirstObstacle();
+            }
+            _timer += Time.deltaTime;
+            if (_timer > _spawnInterval)
+            {
+                //  reset the timer
+                _timer = _spawnInterval - _timer;
 
-            PullObstacleFromPool();
+                PullObstacleFromPool();
+            }
         }
+        
     }
 
     private void PullObstacleFromPool()
@@ -46,7 +54,11 @@ public class ObstacleSpawnManager : MonoBehaviour
         obj.StartMoving();
     }
 
-
+    private void SendFirstObstacle()
+    {
+        PullObstacleFromPool();
+        _firstObstacle = false;
+    }
 
     public static void PushObstacleToPool(Obstacle obstacle)
     {
